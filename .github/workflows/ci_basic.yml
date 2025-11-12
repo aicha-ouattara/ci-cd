@@ -42,3 +42,13 @@ jobs:
           echo "---------------------------"
           cat ./app/index.html
           echo "---------------------------"
+      - name: Display secrets and env vars
+        env:
+          FAKE_API_TOKEN: ${{ secrets.FAKE_API_TOKEN }}
+          ENV_TYPE: ${{ secrets.ENV_TYPE }}
+          MY_CUSTOM_VAR: "HelloWorld"           # variable non-secrète
+        run: |
+          echo "Valeur de FAKE_API_TOKEN : $FAKE_API_TOKEN"
+          echo "Valeur de ENV_TYPE : $ENV_TYPE"
+          echo "Variable personnalisée : $MY_CUSTOM_VAR"
+          echo "Variable GitHub prédéfinie RUNNER_OS : $RUNNER_OS"
