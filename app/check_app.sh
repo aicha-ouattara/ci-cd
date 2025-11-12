@@ -3,7 +3,7 @@
 echo "Début des vérifications de l'application..."
 
 # Vérifier si le fichier index.html existe
-if [ -f "index.html" ]; then
+if [ -f "app/index.html" ]; then
     echo "✅ index.html trouvé."
     echo "Toutes les vérifications sont passées avec succès."
     exit 0
