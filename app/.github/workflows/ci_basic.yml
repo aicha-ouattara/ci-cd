@@ -1,0 +1,44 @@
+name: Basic CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : Checkout du dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Étape 2 : Exécution du script de test avec affichage de messages et date
+      - name: Run application check script
+        run: |
+          echo "=============================="
+          echo "Début du test de l'application"
+          echo "Date actuelle : $(date)"
+          echo "=============================="
+          
+          chmod +x ./app/check_app.sh
+          
+          if ./app/check_app.sh; then
+            echo "✅ Le script de vérification a réussi."
+          else
+            echo "❌ Le script de vérification a échoué."
+            exit 1
+          fi
+          
+          echo "=============================="
+          echo "Fin du test de l'application"
+          echo "=============================="
+
+      # Étape 3 : Affichage du contenu de index.html
+      - name: Display index.html content
+        run: |
+          echo "Contenu de app/index.html :"
+          echo "---------------------------"
+          cat ./app/index.html
+          echo "---------------------------"
