@@ -45,7 +45,7 @@ Ce workflow GitHub Actions permet de :
      * Secrets GitHub : `FAKE_API_TOKEN`, `ENV_TYPE`
      * Variable personnalisée : `MY_CUSTOM_VAR`
      * Variable prédéfinie GitHub : `RUNNER_OS`
-   * Les secrets sont **masqués dans les logs** pour éviter toute fuite.
+   * Les secrets sont **masqués dans les logs** pour éviter toute fuite.s
 
 ---
 
